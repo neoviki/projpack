@@ -32,6 +32,31 @@ manual `chmod` or symlinking needed.
 pjexport --help
 pjimport --help
 ```
+## Update to a Newer Version
+
+If installed with `pipx`, update the installed package with:
+
+```bash
+pipx upgrade projpack
+```
+
+To reinstall directly from the latest Git repository version:
+
+```bash
+pipx uninstall projpack
+pipx install git+https://github.com/neoviki/projpack.git
+```
+
+## Uninstall
+
+To remove `projpack`:
+
+```bash
+pipx uninstall projpack
+```
+
+This removes the installed `pjexport` and `pjimport` commands.
+
 
 ## Usage
 
