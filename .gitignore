@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+deb-build/
+*.deb
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+
+# Exported project files created while testing locally
+*.export
+project.export
