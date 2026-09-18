@@ -1,8 +1,7 @@
 # projpack
 
-Flatten an entire project (directory tree + file contents) into a single
-portable file with **`pjexport`**, and reconstruct it later - exact
-structure, exact content - with **`pjimport`**.
+Flatten an entire project (directory tree and file contents) into a single, readable, portable plain-text file using `pjexport`, and reconstruct it later with `pjimport`, preserving the exact directory structure and file contents.
+
 
 Useful for:
 
