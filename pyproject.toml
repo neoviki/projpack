@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "projpack"
+version = "0.1.0"
+description = "Flatten a project's directory tree and file contents into one portable file, and restore it back into a real project later."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Vignesh (a) Viki", email = "hello@viki.design" }
+]
+keywords = ["project", "export", "import", "backup", "archive", "repository", "flatten", "restore"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/neoviki/projpack"
+Issues = "https://github.com/neoviki/projpack/issues"
+
+# This is what creates the actual `pjexport` / `pjimport`
+# commands on the user's PATH after install - no manual
+# chmod/symlinking required.
+[project.scripts]
+pjexport = "projpack.pjexport:main"
+pjimport = "projpack.pjimport:main"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
