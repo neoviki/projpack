@@ -77,35 +77,28 @@ pjimport project.export --overwrite              # overwrite existing files
 pjimport project.export --dry-run                # preview only, no writes
 ```
 
-## Exclude CSV format
+## Exclude CSV Format
 
-Two formats are supported.
+You can keep the files, directories, and extensions you want to exclude in
+a CSV file, for example `exclude.csv`.
 
-**Simple (recommended)** - one pattern per line, no header. The type
-(directory / extension / file / exact path) is auto-detected by checking
-your actual project tree:
+For example:
 
-```
+```text
 src1
 .txt
 app/test.py
 app/pycache
+node_modules
+.log
 ```
+
+Each line can contain a file, directory, extension, or path to exclude.
 
 - No `/` and a matching **directory** exists anywhere in the tree -> excludes that directory name everywhere
 - Starts with `.` -> excluded as a file **extension**, everywhere
 - No `/` and a matching **file** exists anywhere in the tree -> excludes that filename everywhere
 - Contains `/` -> excluded as an **exact path** relative to the project root (file or directory)
-
-**Structured** - explicit `type,name` header, if you want no ambiguity:
-
-```
-type,name
-dir,node_modules
-ext,.log
-file,secrets.env
-path,app/generated
-```
 
 ## Notes
 
