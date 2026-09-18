@@ -63,9 +63,10 @@ This removes the installed `pjexport` and `pjimport` commands.
 ### Export
 
 ```bash
+pjexport                            # export current dir -> project.export
 pjexport .                          # export current dir -> project.export
 pjexport . -o mybackup.txt          # any output name/extension works
-pjexport . -e exclude.csv           # apply exclusions from a CSV
+pjexport . -e excluded_files.csv    # apply exclusions from a CSV
 ```
 
 ### Import (restore)
@@ -79,8 +80,9 @@ pjimport project.export --dry-run                # preview only, no writes
 
 ## Exclude CSV Format
 
-You can keep the files, directories, and extensions you want to exclude in
-a CSV file, for example `exclude.csv`.
+You can specify files, directories, and extensions to exclude in a CSV file named excludes.csv.
+
+By default, pjexport searches for excludes.csv in the current directory. If you specify a different exclusion file using the -e option, it uses that file instead.
 
 For example:
 

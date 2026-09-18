@@ -764,10 +764,30 @@ def main():
     # ----------------------------------------------
 
     if args.exclude_csv:
+        # User explicitly provided -e
+        exclude_csv = Path(args.exclude_csv).resolve()
 
-        load_exclusions(
-            args.exclude_csv,
-            config
+    else:
+        # Automatically check the project root
+        exclude_csv = config.root / "excludes.csv"
+
+    if exclude_csv.is_file():
+        print(f"Using exclusion file: {exclude_csv}")
+        print(
+            f"Generating project with exclusions "
+            f"from {exclude_csv.name}"
+        )
+
+        load_exclusions(exclude_csv, config)
+
+    elif args.exclude_csv:
+        parser.error(
+            f"Exclusion CSV not found: {exclude_csv}"
+        )
+    else:
+        print(
+            "No excludes.csv found. "
+            "Generating project without CSV exclusions."
         )
 
     # ----------------------------------------------
